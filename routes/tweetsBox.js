@@ -7,7 +7,7 @@ const tweet_controller = require("../controllers/tweetController");
 /// TWEET ROUTES ///
 
 // Get tweetsbox page d'accueil
-router.get("/", tweet_controller.index)
+router.get("/", tweet_controller.index);
 
 // Requette GET et POST SUR la creation d'un tweet
 router.get("/tweet/create", tweet_controller.tweet_create_get);
