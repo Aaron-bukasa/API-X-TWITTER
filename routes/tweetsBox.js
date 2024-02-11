@@ -6,25 +6,17 @@ const tweet_controller = require("../controllers/tweetController");
 
 /// TWEET ROUTES ///
 
-// Get tweetsbox page d'accueil
-router.get("/", tweet_controller.index)
-
-// Requette GET et POST SUR la creation d'un tweet
-router.get("/tweet/create", tweet_controller.tweet_create_get);
-router.get("/tweet/create", tweet_controller.tweet_create_post);
-
-// Requette GET et POST SUR la suppression d'un tweet
-router.get("/tweet/:id/delete", tweet_controller.tweet_delete_get);
-router.get("/tweet/:id/delete", tweet_controller.tweet_delete_post);
-
-// Requette GET et POST SUR la mise à jour d'un tweet
-router.get("/tweet/:id/update", tweet_controller.tweet_update_get);
-router.get("/tweet/:id/update", tweet_controller.tweet_update_post);
-
-// Requette GET sur un tweet
+// Home page, one tweet and all tweet
+router.get("/", tweet_controller.index);
 router.get("/tweet/:id", tweet_controller.tweet_detail);
-
-// Requette GET sur tous les tweet
 router.get("/tweet", tweet_controller.tweet_list);
+
+// create, delete and update a tweet
+router.post("/tweet", tweet_controller.tweet_create);
+router.delete("/tweet/:id", tweet_controller.tweet_delete);
+router.put("/tweet/:id", tweet_controller.tweet_update);
+
+//increment(decrement) likes et retweets
+
 
 module.exports = router;
