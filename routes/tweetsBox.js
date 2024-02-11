@@ -6,7 +6,7 @@ const tweet_controller = require("../controllers/tweetController");
 
 /// TWEET ROUTES ///
 
-// Home page, one tweet and all tweet
+// Display Home page, one tweet and all tweet
 router.get("/", tweet_controller.index);
 router.get("/tweet/:id", tweet_controller.tweet_detail);
 router.get("/tweet", tweet_controller.tweet_list);
@@ -16,7 +16,8 @@ router.post("/tweet", tweet_controller.tweet_create);
 router.delete("/tweet/:id", tweet_controller.tweet_delete);
 router.put("/tweet/:id", tweet_controller.tweet_update);
 
-//increment(decrement) likes et retweets
-
+// Increment(decrement) likes et retweets
+router.put("/tweet/:id/likes", tweet_controller.tweet_likesUpdate);
+router.put("/tweet/:id/retweets", tweet_controller.tweet_retweetsUpdate);
 
 module.exports = router;
