@@ -1,5 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
@@ -40,7 +41,11 @@ exports.user_login = async(req, res, next) => {
                     } else {
                         res.status(200).json({
                             userId: user.id,
-                            token: 'TOKEN'
+                            token: jwt.sign(
+                                {userId: user.id},
+                                'RANDOM_TOKEN_SECRET',
+                                { expiresIn: '24h' }
+                            )
                         });
                     }
                 })
