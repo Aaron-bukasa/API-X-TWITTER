@@ -6,7 +6,10 @@ L'objectif de ce projet est de développer une API pour le projet twitter avec d
 ## Déroulement du projet:
 
 **Sprint 1:  Conception de Base de l'API**
-Il sera question de la mise en place de la structure de base de l'API de gestion de contacts en utilisant le modèle C4. De créer les routes principales et les contrôleurs pour les opérations CRUD de base sur les tweets.
+Il est question de la mise en place de la structure de base de l'API de gestion de contacts en utilisant le modèle C4. De créer les routes principales et les contrôleurs pour les opérations CRUD de base sur les tweets.
 
 **Sprint 2: Gestion des Utilisateurs et Authentification**
-Il sera question de la gestion des utilisateurs, l'authentification, et la connexion à la base de données pour stocker les informations. nous devrons mettre en place un système d'authentification basé sur JWT (JSON Web Tokens) et configurer la connexion à une base de données pour la persistance des données.
+Il est question de la gestion des utilisateurs, l'authentification, et la connexion à la base de données pour stocker les informations. nous devrons mettre en place un système d'authentification basé sur JWT (JSON Web Tokens) et configurer la connexion à une base de données pour la persistance des données.
+
+**Sprint #3: Intégration Front End et Gestion des Autorisations**
+Il est question l'intégration de l'API avec le frontend existant et la gestion des autorisations. Créer la partie connexion dans le frontend et assurer que seuls les utilisateurs connectés ont accès aux tweets. L'objectif est de garantir une expérience utilisateur fluide et sécurisée.
