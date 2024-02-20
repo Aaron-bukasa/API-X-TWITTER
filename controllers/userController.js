@@ -4,6 +4,10 @@ const jwt = require('jsonwebtoken');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
+const auth = require('../middleware/auth');
+const router = express.Router();
+const tweets_controller = require("../controllers/tweetsController");
+
 exports.user_signup = async(req, res, next) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
