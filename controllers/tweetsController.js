@@ -32,6 +32,8 @@ exports.tweet_detail = async(req, res) => {
 // Create tweet
 exports.tweet_create = async(req, res) => {
     try {
+        console.log(req.body.contentImg);
+
         const { contentTxt, contentImg } = req.body;
         if (!contentTxt && !contentImg) {
           return res.status(400).json({ error: 'Veillez renseigner au moins un champs: Le texte ou l\'image à publier' });
@@ -129,3 +131,21 @@ exports.tweet_retweetsUpdate = async(req, res) => {
         res.status(500).json({ error: 'Erreur serveur' });
     }
 }
+
+
+exports.tweetsWithUsersWithProfilsGET = async(req, res, nex) => {
+    try {
+      const tweetsWithUsersAndProfil = await prisma.tweet.findMany({
+        include: {
+          user: {
+            include: {
+              profil: true,
+            },
+          },
+        },
+      });
+      res.status(200).jsom({ tweetsWithUsersAndProfil })
+    } catch (error) {
+      
+    }
+  }
